@@ -12,6 +12,8 @@
 #define MAX_FATHER_NAME 50
 #define MAX_student_NAME 50
 #define MAX_student_ADDRESS 300
+#define MAX_student_GENDER 300
+#define MAX_student_BRANCH 300
 #define FILE_HEADER_SIZE  sizeof(sFileHeader)
 //structure to store date
 typedef struct
@@ -31,7 +33,7 @@ typedef struct// to call in program
     char fatherName[MAX_FATHER_NAME];// declare the character data type
     char studentName[MAX_student_NAME];// declare the character data type
     char studentAddr[MAX_student_ADDRESS];// declare the character data type
-    Date studentJoiningDate;// declare the integer data type
+    Date studentbirthdate;// declare the integer data type
     unsigned int student_id; // declare the integer data type
     float studentfees;
 } s_studentsInfo;
@@ -192,9 +194,9 @@ void addstudentInDataBase()
     {
         //get date year,month and day from user
         printf("\n\t\t\tEnter date in format (day/month/year): ");
-        scanf("%d/%d/%d",&addstudentInfoInDataBase.studentJoiningDate.dd,&addstudentInfoInDataBase.studentJoiningDate.mm,&addstudentInfoInDataBase.studentJoiningDate.yyyy);
+        scanf("%d/%d/%d",&addstudentInfoInDataBase.studentbirthdate.dd,&addstudentInfoInDataBase.studentbirthdate.mm,&addstudentInfoInDataBase.studentbirthdate.yyyy);
         //check date validity
-        status = isValidDate(&addstudentInfoInDataBase.studentJoiningDate);
+        status = isValidDate(&addstudentInfoInDataBase.studentbirthdate);
         if (!status)
         {
             printf("\n\t\t\tPlease enter a valid date.\n");
@@ -245,8 +247,8 @@ void searchstudent()
         printf("\t\t\tstudent fees = %f\n",addstudentInfoInDataBase.studentfees);
         printf("\t\t\tFather Name = %s",addstudentInfoInDataBase.fatherName);
         printf("\t\t\tstudent Address = %s",addstudentInfoInDataBase.studentAddr);
-        printf("\t\t\tstudent Admission Date(day/month/year) =  (%d/%d/%d)",addstudentInfoInDataBase.studentJoiningDate.dd,
-               addstudentInfoInDataBase.studentJoiningDate.mm, addstudentInfoInDataBase.studentJoiningDate.yyyy);
+        printf("\t\t\tstudent DATE OF BIRTH(day/month/year) =  (%d/%d/%d)",addstudentInfoInDataBase.studentbirthdate.dd,
+               addstudentInfoInDataBase.studentbirthdate.mm, addstudentInfoInDataBase.studentbirthdate.yyyy);
     }
     else
     {
@@ -286,8 +288,8 @@ void viewstudent()
         printf("\t\t\tstudent fees = %f\n",addstudentInfoInDataBase.studentfees);
         printf("\t\t\tFather Name = %s",addstudentInfoInDataBase.fatherName);
         printf("\t\t\tstudent Address = %s",addstudentInfoInDataBase.studentAddr);
-        printf("\t\t\tstudent Admission Date(day/month/year) =  (%d/%d/%d)\n\n",addstudentInfoInDataBase.studentJoiningDate.dd,
-               addstudentInfoInDataBase.studentJoiningDate.mm, addstudentInfoInDataBase.studentJoiningDate.yyyy);
+        printf("\t\t\tstudent DATE OF BIRTH(day/month/year) =  (%d/%d/%d)\n\n",addstudentInfoInDataBase.studentbirthdate.dd,
+               addstudentInfoInDataBase.studentbirthdate.mm, addstudentInfoInDataBase.studentbirthdate.yyyy);
         found = 1;
         ++countstudent;
     }
